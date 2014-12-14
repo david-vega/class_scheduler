@@ -3,6 +3,7 @@ ruby '2.1.5'
 
 gem 'rails', '4.1.8'
 
+gem 'aasm'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'coffee-rails'

@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     delete '/logout', to: 'devise/sessions#destroy'
   end
 
+  namespace :api do
+    api_version(module: 'v1', path: {value: 'v1'}) do
+      resources :class_rooms
+    end
+  end
+
   match '/calendar' => 'class_scheduler#index', format: false, via: [:get, :post]
 
   root to: 'class_scheduler#index'
