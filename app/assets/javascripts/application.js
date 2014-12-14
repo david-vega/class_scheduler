@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.validate
+//= require jquery.form_params
+//= require bootstrap
+//= require underscore
+//= require backbone
+//= require i18n
+//= require i18n/translations
+//= require class_scheduler

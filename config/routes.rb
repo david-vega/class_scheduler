@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     delete '/logout', to: 'devise/sessions#destroy'
   end
 
+  match '/calendar' => 'class_scheduler#index', format: false, via: [:get, :post]
+
   root to: 'class_scheduler#index'
 end
