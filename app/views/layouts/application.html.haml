@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    =render 'shared/head'
+  %body
+    #fb-root
+    #main-wrapper
+      %header#main-header
+        = render 'shared/header'
+
+      %section#main.row
+        = yield
+
+      %footer#main-footer
+        = render 'shared/footer'
+
+    = yield :script

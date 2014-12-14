@@ -246,6 +246,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  eco
   factory_girl_rails
   fivemat!
   haml

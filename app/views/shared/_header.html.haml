@@ -1,0 +1,6 @@
+- if current_user
+  = current_user.email
+  = link_to 'log_out', logout_path, method: :delete
+- else
+  %li#link-to-login
+    = link_to 'log in', login_path
