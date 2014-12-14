@@ -1,0 +1,17 @@
+general: &general
+  adapter: postgresql
+  pool: 5
+  host: localhost
+  min_messages: WARNING
+
+development:
+  <<: *general
+  database: class_scheduler_dev
+
+test:
+  <<: *general
+  database: class_scheduler_test
+
+production:
+  <<: *general
+  database: class_scheduler
