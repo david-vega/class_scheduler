@@ -9,11 +9,10 @@ describe Api::V1::ClassRoomsController do
   before{ sign_in user }
 
   describe 'GET index' do
-    it 'returns al class_rooms' do
-      get :index, format: :json
-      response.should be_success
-      assigns(:class_rooms).first.should eq(class_room)
-      JSON.parse(response.body).first.keys.should eq ['id', 'name', 'state']
-    end
+    before{get :index, format: :json}
+
+    it { expect(response).to be_success }
+    it{ expect(assigns(:class_rooms).first).to eq(class_room) }
+    it{ expect(JSON.parse(response.body).first.keys).to eq ['id', 'name', 'state'] }
   end
 end
