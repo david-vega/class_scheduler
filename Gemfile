@@ -28,7 +28,7 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'fivemat', github: 'shvets/fivemat'
+  gem 'fivemat'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
