@@ -12,7 +12,7 @@ class Reservation < ActiveRecord::Base
     state :finished
 
     event :finish do
-      transitions from: [:reserved, :in_progress], to: :finished
+      transitions from: [:reserved, :started], to: :finished
     end
 
     event :start do
