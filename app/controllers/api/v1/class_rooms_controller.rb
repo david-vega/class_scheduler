@@ -17,7 +17,6 @@ class Api::V1::ClassRoomsController <Api::V1::BaseController
 
   def update
     @class_room.update(class_room_params)
-    respond_with(@class_room)
   end
 
   def destroy

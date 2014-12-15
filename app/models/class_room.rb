@@ -1,6 +1,8 @@
 class ClassRoom < ActiveRecord::Base
   include AASM
 
+  has_many :reservations, dependent: :destroy
+
   validates :name, presence: true
   validates :name, uniqueness: true
 

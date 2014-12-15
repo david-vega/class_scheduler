@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214193737) do
+ActiveRecord::Schema.define(version: 20141214230825) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "class_rooms", force: true do |t|
     t.string   "name"
@@ -20,9 +23,21 @@ ActiveRecord::Schema.define(version: 20141214193737) do
     t.datetime "updated_at"
   end
 
+  create_table "reservations", force: true do |t|
+    t.string   "name"
+    t.string   "state"
+    t.integer  "user_id"
+    t.integer  "class_room_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "type"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
