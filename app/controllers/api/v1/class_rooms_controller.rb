@@ -1,4 +1,4 @@
-class Api::V1::ClassRoomsController <Api::V1::BaseController
+class Api::V1::ClassRoomsController < Api::V1::BaseController
   respond_to :json, :js
 
   before_action :find_class_room, only: [:show, :update, :destroy]
