@@ -5,6 +5,6 @@ FactoryGirl.define do
     end_time Time.now + 1.hours
 
     association :user, factory: :super_user
-    association :class_room
+    association :classroom
   end
 end

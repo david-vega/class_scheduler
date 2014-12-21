@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe ClassRoom do
-  subject { FactoryGirl.create :class_room }
+describe Classroom do
+  subject { FactoryGirl.create :classroom }
 
   it{ expect{ subject.save! }.to_not raise_error }
 
@@ -18,11 +18,11 @@ describe ClassRoom do
 
   describe 'validations' do
     context ' the name presence is required' do
-      it{ expect(ClassRoom.new).to_not be_valid }
+      it{ expect(Classroom.new).to_not be_valid }
     end
 
     context ' the name has to be unique' do
-      it{ expect(ClassRoom.new(name: subject.name)).to_not be_valid }
+      it{ expect(Classroom.new(name: subject.name)).to_not be_valid }
     end
   end
 end

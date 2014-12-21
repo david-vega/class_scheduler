@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141214230825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "class_rooms", force: true do |t|
+  create_table "classrooms", force: true do |t|
     t.string   "name"
     t.string   "state"
     t.datetime "created_at"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141214230825) do
     t.string   "name"
     t.string   "state"
     t.integer  "user_id"
-    t.integer  "class_room_id"
+    t.integer  "classroom_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"

@@ -1,4 +1,4 @@
-class ClassRoom < ActiveRecord::Base
+class Classroom < ActiveRecord::Base
   include AASM
 
   has_many :reservations, dependent: :destroy

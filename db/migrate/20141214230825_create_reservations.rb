@@ -4,7 +4,7 @@ class CreateReservations < ActiveRecord::Migration
       t.string :name
       t.string :state
       t.integer :user_id
-      t.integer :class_room_id
+      t.integer :classroom_id
       t.datetime :start_time
       t.datetime :end_time
 

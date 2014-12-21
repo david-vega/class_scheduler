@@ -2,9 +2,9 @@ class Reservation < ActiveRecord::Base
   include AASM
 
   belongs_to :user
-  belongs_to :class_room
+  belongs_to :classroom
 
-  validates :name, :user_id, :class_room_id, :start_time, :end_time, presence: true
+  validates :name, :user_id, :classroom_id, :start_time, :end_time, presence: true
 
   aasm column: :state do
     state :reserved, initial: true

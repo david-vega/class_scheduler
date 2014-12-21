@@ -1,6 +1,6 @@
-class CreateClassRooms < ActiveRecord::Migration
+class CreateClassrooms < ActiveRecord::Migration
   def change
-    create_table :class_rooms do |t|
+    create_table :classrooms do |t|
       t.string :name, unique: true
       t.string :state
 

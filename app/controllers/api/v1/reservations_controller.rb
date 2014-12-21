@@ -30,6 +30,6 @@ class Api::V1::ReservationsController < Api::V1::BaseController
 
     def reservation_params
       params[:reservation][:user_id] = current_user.id
-      params.require(:reservation).permit(:name, :user_id, :class_room_id, :start_time, :end_time)
+      params.require(:reservation).permit(:name, :user_id, :classroom_id, :start_time, :end_time)
     end
 end
