@@ -3,12 +3,15 @@ class ClassScheduler.Views.CalendarView extends ClassScheduler.Views.Base
 
   el: '#main-container'
 
-  renderStories: ->
+  render: ->
+    super
+    @renderClassrooms()
+    @
+
+  renderClassrooms: ->
     @classroomsCollection = new ClassScheduler.Collections.ClassroomsCollection
     classroomsView = new ClassScheduler.Views.ClassroomsView
-      collection: @classroomsCollection
-      el: @$('#teeth-stories')
-      model: @model
-      params: @options.params
+                                        collection: @classroomsCollection
+                                        el: @$('#classrooms')
 
     @classroomsCollection.fetch reset: true
