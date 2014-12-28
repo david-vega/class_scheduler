@@ -18,3 +18,9 @@ window.ClassScheduler =
 
 $.fn.serializeObject = ->
   @.formParams()
+
+Backbone.View = ((View) ->
+  View.extend constructor: (options) ->
+    @options = options || {}
+    View.apply @, arguments
+)(Backbone.View)
