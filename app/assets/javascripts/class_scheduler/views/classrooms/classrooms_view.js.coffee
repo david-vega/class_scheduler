@@ -1,10 +1,3 @@
-class ClassScheduler.Views.ClassroomsView extends ClassScheduler.Views.Base
-  initialize: ->
-    @collection.on 'reset', @addAll, @
+class ClassScheduler.Views.ClassroomsView extends ClassScheduler.Views.Collection
 
-  addAll: (collection) ->
-    collection.each @addOne, @
-
-  addOne: (model) ->
-    classroomView = new ClassScheduler.Views.ClassroomView model: model
-    @$el.prepend classroomView.render().el
+  empty_template: JST['class_scheduler/templates/classrooms/empty']
