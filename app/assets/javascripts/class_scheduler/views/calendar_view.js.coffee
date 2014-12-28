@@ -14,5 +14,6 @@ class ClassScheduler.Views.CalendarView extends ClassScheduler.Views.Base
                                         collection: @classroomsCollection
                                         el: @$('#classrooms')
                                         view: ClassScheduler.Views.ClassroomView
+                                        newView: ClassScheduler.Views.NewClassroomView
 
     @classroomsCollection.fetch reset: true
