@@ -1,1 +1,9 @@
-Una prueba aca.
+= form_tag '/api/v1/classrooms', class: 'form',
+                                 id: 'new-classroom-form',
+                                 multipart: true,
+                                 authenticity_token: true do
+
+  = label_tag 'classroom[name]', 'Name', class: ''
+  = text_field_tag 'classroom[name]', '', class: ''
+  
+  = button_tag :add, id: 'add-classroom-button', class: 'form-button new'
