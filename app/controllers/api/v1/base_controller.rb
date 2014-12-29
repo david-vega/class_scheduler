@@ -1,6 +1,9 @@
 class Api::V1::BaseController < ApplicationController
   before_filter :authenticate_user!
 
+  #TODO need to find how to set the CSRF token properly :(
+  skip_before_filter :verify_authenticity_token
+
   rescue_from ActiveRecord::UnknownAttributeError, ArgumentError do |exception|
     respond_with_error(exception, 400)
   end

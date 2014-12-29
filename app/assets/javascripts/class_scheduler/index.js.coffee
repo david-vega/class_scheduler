@@ -6,9 +6,6 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-($ document).ajaxSend (event, jqxhr, settings) ->
-  jqxhr.setRequestHeader 'X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')
-
 window.ClassScheduler =
   Models: {}
   Collections: {}
