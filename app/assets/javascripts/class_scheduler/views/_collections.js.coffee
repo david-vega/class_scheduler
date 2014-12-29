@@ -24,6 +24,7 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     model = new @collection.model
     model.collection = @collection
     newModelView = new @options.newView
+                                collection: @collection
                                 model: model
                                 el: '#add-new'
     newModelView.render().$el

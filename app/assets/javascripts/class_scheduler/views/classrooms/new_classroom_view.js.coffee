@@ -9,14 +9,13 @@ class ClassScheduler.Views.NewClassroomView extends ClassScheduler.Views.Base
 
   handleNewClassroomForm: (event) ->
     event.preventDefault()
-    @model.clear silent: true
-    @model.set @params(),
-      silent: true
+
+    @model.set @params(), silent: true
     @model.save {},
-      success: (model,response) =>
+      success: (response) =>
         @handleSuccess(response)
 
-  handleSuccess: (response) =>
+  handleSuccess: (response) ->
     @collection.add @model
 
   renderErrors: (errors) =>
