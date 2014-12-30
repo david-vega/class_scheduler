@@ -27,4 +27,5 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
                                 collection: @collection
                                 model: model
                                 el: '#add-new'
+    @$('.add-new').hide()
     newModelView.render().$el

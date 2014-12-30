@@ -1,6 +1,1 @@
-= form_tag 'classrooms', class: 'form', id: 'new-classroom-form' do
-
-  = label_tag 'classroom[name]', 'Name', class: ''
-  = text_field_tag 'classroom[name]', '', class: ''
-
-  = submit_tag 'Add classroom', id: 'add-classroom-button', class: 'form-button new'
+<%- JST['class_scheduler/templates/classrooms/_form'] @ %>

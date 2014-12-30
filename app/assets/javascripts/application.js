@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.form_params
-//= require jquery.validate
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone-validation
 //= require i18n
 //= require i18n/translations
 //= require class_scheduler

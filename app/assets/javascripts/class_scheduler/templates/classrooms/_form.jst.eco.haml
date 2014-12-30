@@ -1,0 +1,6 @@
+= form_tag 'classrooms', class: 'form', id: 'classroom-form' do
+
+  = label_tag 'classroom[name]', 'Name', class: ''
+  = text_field_tag 'classroom[name]', '', class: '', value: '<%=@name%>'.html_safe
+
+  = submit_tag 'Submit', id: 'classroom-button', class: 'form-button'

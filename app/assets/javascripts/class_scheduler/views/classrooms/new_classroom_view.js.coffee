@@ -1,22 +1,7 @@
-class ClassScheduler.Views.NewClassroomView extends ClassScheduler.Views.Base
+class ClassScheduler.Views.NewClassroomView extends ClassScheduler.Views.New
   template_path: 'classrooms/new'
 
-  initialize: ->
-    @model.on 'error', @handleError
+  empty_template: JST['class_scheduler/templates/classrooms/empty']
 
-  events:
-    'click input[type="submit"]' : 'handleNewClassroomForm'
-
-  handleNewClassroomForm: (event) ->
-    event.preventDefault()
-
-    @model.set @params(), silent: true
-    @model.save {},
-      success: (response) =>
-        @handleSuccess(response)
-
-  handleSuccess: (response) ->
-    @collection.add @model
-
-  renderErrors: (errors) =>
-    #TODO handle errors
+  afterSuccess: ->
+    $('.add-new').show()
