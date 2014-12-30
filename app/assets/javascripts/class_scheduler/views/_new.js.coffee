@@ -15,7 +15,7 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
 
   handleSuccess: (response) ->
     @collection.add @model if @collection
-    @afterSuccess() if @afterSuccess
+    @afterSuccess()
     @remove()
 
 
