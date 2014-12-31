@@ -1,5 +1,6 @@
 class ClassScheduler.Views.New extends ClassScheduler.Views.Base
   initialize: ->
+    @model.bind "validated:invalid", @handleInvalid
     @model.on 'error', @handleError
 
   events:
@@ -10,7 +11,7 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
 
     @model.set @params(), silent: true
     @model.save {},
-      success: (response) =>
+      success: (model, response) =>
         @handleSuccess(response)
 
   handleSuccess: (response) ->
@@ -18,6 +19,8 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
     @afterSuccess()
     @remove()
 
-
-  renderErrors: (errors) ->
+  renderErrors: (fields, errors) ->
     #TODO handle errors
+
+  handleInvalid: (model, errors) ->
+    #TODO render error messages for each field

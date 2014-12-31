@@ -24,3 +24,5 @@ Backbone.View = ((View) ->
     @options = options || {}
     View.apply @, arguments
 )(Backbone.View)
+
+_.extend(Backbone.Model.prototype, Backbone.Validation.mixin)

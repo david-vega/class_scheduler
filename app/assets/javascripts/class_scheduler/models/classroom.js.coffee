@@ -3,3 +3,9 @@ class ClassScheduler.Models.Classroom extends Backbone.Model
 
   defaults:
     name: ''
+
+  validation:
+    name: [
+      required: true
+      msg: 'This field is required'
+    ]
