@@ -23,4 +23,6 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
     #TODO handle errors
 
   handleInvalid: (model, errors) ->
-    #TODO render error messages for each field
+    $('.form .error').remove()
+    for key, msg of errors
+      $("##{key}").after("<div class='error'>#{msg}</div>")
