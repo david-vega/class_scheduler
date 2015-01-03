@@ -26,6 +26,6 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     newModelView = new @options.newView
                                 collection: @collection
                                 model: model
-                                el: '#add-new'
+                                el: '.add-new-form'
     @$('.add-new').hide()
     newModelView.render().$el
