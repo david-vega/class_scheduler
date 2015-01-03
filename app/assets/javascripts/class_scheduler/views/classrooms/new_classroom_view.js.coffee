@@ -5,3 +5,6 @@ class ClassScheduler.Views.NewClassroomView extends ClassScheduler.Views.New
 
   afterSuccess: ->
     $('.add-new').show()
+
+  handleInvalid: (model, error) ->
+    $('#error-msg').html(error.name)
