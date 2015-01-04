@@ -4,7 +4,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   before_action :find_reservation, only: [:show, :update, :destroy]
 
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(classroom_id: params[:classroom_id])
   end
 
   def show
