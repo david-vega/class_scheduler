@@ -3,9 +3,6 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     @collection.on 'reset', @addAll, @
     @collection.on 'add', @addOne, @
 
-  events:
-    'click .add-new' : 'renderNewForm'
-
   addAll: (collection) ->
     collection.each @addOne, @
     @addEmpty collection.isEmpty()
@@ -26,6 +23,6 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     newModelView = new @options.newView
                                 collection: @collection
                                 model: model
-                                el: '.add-new-form'
-    @$('.add-new').hide()
+                                el: ".add-new-#{model.get('modelType')}-form"
+    @$(".add-new-#{model.get('modelType')}").hide()
     newModelView.render().$el

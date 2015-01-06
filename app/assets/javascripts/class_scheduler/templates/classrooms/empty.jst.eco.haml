@@ -1,6 +1,6 @@
-<% if @empty: %>
-There are no records
-<% end %>
-= link_to 'addNewClassRoom', '#', class: 'add-new'
-.add-new-form.col-md-1
-
+.classroom.empty.col-md-4
+  <% if @empty: %>
+  There are no records
+  <% end %>
+  = link_to 'New classroom', '#', class: 'add-new-classroom'
+  .add-new-classroom-form

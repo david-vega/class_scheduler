@@ -19,6 +19,9 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
     @afterSuccess()
     @remove()
 
+  afterSuccess: ->
+    $(".add-new-#{@model.get('modelType')}").show()
+
   renderErrors: (fields, errors) ->
     #TODO handle errors
 

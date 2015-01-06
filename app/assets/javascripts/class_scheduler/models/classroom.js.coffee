@@ -3,6 +3,7 @@ class ClassScheduler.Models.Classroom extends Backbone.Model
 
   defaults:
     name: ''
+    modelType: 'classroom'
 
   validation:
     name: [
