@@ -1,1 +1,6 @@
-test
+= form_tag 'reservations', class: 'form', id: 'reservation-form' do
+
+  = label_tag 'name', 'Name', class: ''
+  = text_field_tag 'name', '', class: '', value: '<%=@name%>'.html_safe
+
+  = submit_tag 'Submit', id: 'reservation-button', class: 'form-button'
