@@ -8,6 +8,7 @@ class ClassScheduler.Views.Base extends Backbone.View
 
   render: ->
     @$el.html @template @model.toJSON()
+    @afterRender() if @afterRender
     @
 
   params: ->

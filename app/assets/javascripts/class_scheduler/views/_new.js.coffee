@@ -16,11 +16,7 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
 
   handleSuccess: (response) ->
     @collection.add @model if @collection
-    @afterSuccess()
     @remove()
-
-  afterSuccess: ->
-    $(".add-new-#{@model.get('modelType')}").show()
 
   renderErrors: (fields, errors) ->
     #TODO handle errors
@@ -28,4 +24,4 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
   handleInvalid: (model, errors) ->
     $('.form .error').remove()
     for key, msg of errors
-      $("##{key}").after("<div class='error'>#{msg}</div>")
+      @$("##{key}").after("<div class='error'>#{msg}</div>")
