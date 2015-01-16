@@ -23,7 +23,7 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     view = new @options.view
                         model: model
                         view_params: @options.view_params
-    @$el.prepend view.render().el
+    @$el.append view.render().el
 
   afterRenderView: ->
     @$('.add-new').show()
@@ -39,7 +39,6 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     newModelView = new @options.newView
                                 collection: @collection
                                 model: @model
-                                el: @$(".add-new-#{@model.get('modelType')}-form")
 
-    @$('.add-new').hide()
-    newModelView.render().$el
+    @$(".#{@model.get('modelType')}.add-new").hide()
+    @$(".#{@model.get('modelType')}.empty").append newModelView.render().$el
