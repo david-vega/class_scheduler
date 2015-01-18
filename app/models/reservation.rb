@@ -4,7 +4,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :classroom
 
-  validates :name, :user_id, :classroom_id, presence: true
+  validates :name, :user_id, :classroom_id,:start_time, :end_time, presence: true
 
   aasm column: :state do
     state :reserved, initial: true
