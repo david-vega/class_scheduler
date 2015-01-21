@@ -2,5 +2,18 @@
 
   = label_tag 'name', 'Name', class: ''
   = text_field_tag 'name', '', class: '', value: '<%=@name%>'.html_safe
-
+  %br
+  = label_tag 'start_time', 'Inicio', class: ''
+  = text_field_tag 'start_time', '',class: 'datetime'
+  %br
+  = label_tag 'end_time', 'Fin', class: ''
+  = text_field_tag 'end_time', '',class: 'datetime'
   = submit_tag 'Submit', id: 'reservation-button', class: 'form-button'
+
+:coffeescript
+  $ ->
+    $('.datetime').datetimepicker({
+      format:'DD/MM/YYYY, HH:mm',
+      sideBySide: true,
+      defaultDate: new Date()
+    })
