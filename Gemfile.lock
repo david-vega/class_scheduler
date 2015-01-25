@@ -90,6 +90,11 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    draper (1.4.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -168,6 +173,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    request_store (1.1.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rspec-core (3.1.7)
@@ -243,6 +249,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  draper
   eco
   factory_girl_rails
   fivemat
