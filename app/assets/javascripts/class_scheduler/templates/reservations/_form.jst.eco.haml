@@ -3,10 +3,10 @@
   = label_tag 'name', 'Name', class: ''
   = text_field_tag 'name', '', class: '', value: '<%=@name%>'.html_safe
   %br
-  = label_tag 'start_time', 'Inicio', class: ''
+  = label_tag 'start_time', 'Start', class: ''
   = text_field_tag 'start_time', '',class: 'datetime', value: '<%=@start_time%>'.html_safe
   %br
-  = label_tag 'end_time', 'Fin', class: ''
+  = label_tag 'end_time', 'End', class: ''
   = text_field_tag 'end_time', '',class: 'datetime', value: '<%=@end_time%>'.html_safe
   = submit_tag 'Submit', id: 'reservation-button', class: 'form-button'
 
