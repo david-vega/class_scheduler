@@ -22,6 +22,7 @@ gem 'uglifier'
 gem 'versionist'
 
 group :test, :development do
+  gem 'awesome_print'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
