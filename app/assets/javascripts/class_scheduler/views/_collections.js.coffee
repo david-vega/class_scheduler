@@ -32,10 +32,18 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     event.preventDefault()
     event.stopPropagation()
 
-    @model.collection = @collection
+    model = @getModel()
+
     newModelView = new @options.newView
                                 collection: @collection
-                                model: @model
+                                model: model
 
-    @$(".#{@model.get('modelType')}.add-new").hide()
-    @$(".#{@model.get('modelType')}.empty").append newModelView.render().$el
+    @$(".#{model.get('modelType')}.add-new").hide()
+    @$(".#{model.get('modelType')}.empty").append newModelView.render().$el
+
+  getModel: ->
+    model = new @collection.model
+    model.collection = @collection
+
+    model.set @options.newModelOptions if @options.newModelOptions
+    model

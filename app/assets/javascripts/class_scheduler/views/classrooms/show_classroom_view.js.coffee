@@ -11,7 +11,7 @@ class ClassScheduler.Views.ClassroomView extends ClassScheduler.Views.Show
                                         el: @$('.reservations')
                                         view: ClassScheduler.Views.ReservationView
                                         newView: ClassScheduler.Views.NewReservationView
-                                        classroomId: @model.id
+                                        newModelOptions: { classroom_id: @model.id }
 
     reservationsCollection.fetch
                 data: $.param(classroom_id: @model.id)
