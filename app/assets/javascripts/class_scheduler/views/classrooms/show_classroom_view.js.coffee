@@ -3,8 +3,7 @@ class ClassScheduler.Views.ClassroomView extends ClassScheduler.Views.Show
 
   className: 'classroom col-md-4'
 
-  events:
-    'click .edit' : 'renderEditClassroom'
+  editView: ClassScheduler.Views.EditClassroomView
 
   renderReservations: ->
     reservationsCollection = new ClassScheduler.Collections.ReservationsCollection
@@ -22,11 +21,3 @@ class ClassScheduler.Views.ClassroomView extends ClassScheduler.Views.Show
 
   afterRender: ->
     @renderReservations()
-
-  renderEditClassroom: ->
-    editModelView = new ClassScheduler.Views.EditClassroomView
-                                       model: @model
-
-
-
-    @$el.append editModelView.render().$el

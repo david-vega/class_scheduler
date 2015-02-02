@@ -3,11 +3,9 @@ class ClassScheduler.Views.Show extends ClassScheduler.Views.Base
     @model.on 'change', @render, @
 
   events:
-    'click .remove'     : 'renderRemoveDialog'
-    'click .edit'       : 'renderEditDialog'
+    'click .edit' : 'renderEditForm'
 
-  renderRemoveDialog: (event) ->
-    #TODO to be implemented
+  renderEditForm: ->
+    editModelView = new @editView model: @model
 
-  renderEditDialog: (event) ->
-    #TODO to be implemented
+    @$el.append editModelView.render().$el

@@ -16,7 +16,8 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   end
 
   def update
-    @reservation.update(reservation_params).decorate
+    @reservation.update(reservation_params)
+    @reservation = @reservation.decorate
   end
 
   def destroy
