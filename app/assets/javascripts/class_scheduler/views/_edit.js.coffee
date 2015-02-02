@@ -5,6 +5,7 @@ class ClassScheduler.Views.Edit extends ClassScheduler.Views.Base
 
   events:
     'click input[type="submit"]' : 'handleEditForm'
+    'click .remove' : 'removeView'
 
   handleEditForm: (event) ->
     event.preventDefault()

@@ -5,6 +5,7 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
 
   events:
     'click input[type="submit"]' : 'handleNewForm'
+    'click .remove' : 'removeNewView'
 
   handleNewForm: (event) ->
     event.preventDefault()
@@ -16,7 +17,7 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
 
   handleSuccess: (response) ->
     @collection.add @model if @collection
-    @remove()
+    @removeView()
 
   renderErrors: (fields, errors) ->
     #TODO handle errors
@@ -25,3 +26,6 @@ class ClassScheduler.Views.New extends ClassScheduler.Views.Base
     $('.form .error').remove()
     for key, msg of errors
       @$("##{key}").after("<div class='error'>#{msg}</div>")
+
+  removeNewView: ->
+    #TODO remove the form when click on remove

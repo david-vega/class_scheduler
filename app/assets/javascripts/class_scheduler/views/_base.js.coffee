@@ -13,3 +13,6 @@ class ClassScheduler.Views.Base extends Backbone.View
 
   params: ->
     @$('form').serializeObject()
+
+  removeView: ->
+    @remove()
