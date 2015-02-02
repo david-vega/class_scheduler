@@ -9,15 +9,15 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
 
   collectionReset: (collection) ->
     @addAll collection
-    @afterRenderView()
+    @addEmpty()
 
   collectionAdd: (model) ->
     @addOne model
-    @afterRenderView()
+    @$('.empty').remove()
+    @addEmpty()
 
   addAll: (collection) ->
     collection.each @addOne, @
-    @addEmpty collection.isEmpty()
 
   addOne: (model) ->
     view = new @options.view
@@ -25,11 +25,8 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
                         view_params: @options.view_params
     @$el.append view.render().el
 
-  afterRenderView: ->
-    @$('.add-new').show()
-
-  addEmpty: (empty) ->
-    @$el.append @empty_template empty: empty
+  addEmpty: ->
+    @$el.append @empty_template empty: @collection.isEmpty()
 
   renderNewForm: (event) ->
     event.preventDefault()

@@ -4,14 +4,14 @@ class ClassScheduler.Views.CalendarView extends ClassScheduler.Views.Base
   el: '#main-container'
 
   renderClassrooms: ->
-    @classroomsCollection = new ClassScheduler.Collections.ClassroomsCollection
+    classroomsCollection = new ClassScheduler.Collections.ClassroomsCollection
     classroomsView = new ClassScheduler.Views.ClassroomsView
-                                        collection: @classroomsCollection
+                                        collection: classroomsCollection
                                         el: @$('#classrooms')
                                         view: ClassScheduler.Views.ClassroomView
                                         newView: ClassScheduler.Views.NewClassroomView
 
-    @classroomsCollection.fetch reset: true
+    classroomsCollection.fetch reset: true
 
   afterRender: ->
     @renderClassrooms()
