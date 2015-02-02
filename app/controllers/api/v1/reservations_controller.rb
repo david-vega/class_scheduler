@@ -8,7 +8,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   end
 
   def show
-    @reservation.decorate
+    @reservation
   end
 
   def create
@@ -17,7 +17,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
 
   def update
     @reservation.update(reservation_params)
-    @reservation = @reservation.decorate
+    @reservation
   end
 
   def destroy
@@ -26,7 +26,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
 
   private
     def find_reservation
-      @reservation = Reservation.find(params[:id])
+      @reservation = Reservation.find(params[:id]).decorate
     end
 
     def reservation_params

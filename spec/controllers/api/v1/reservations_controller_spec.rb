@@ -6,15 +6,17 @@ describe Api::V1::ReservationsController do
   let(:reservation){ FactoryGirl.create :reservation }
   let(:user){ reservation.user }
   let(:classroom){ reservation.classroom }
+  let(:response_keys){ %w(id name start end user_email classroom_id) }
 
   before{ sign_in user }
 
   describe 'GET index' do
-    before{ get :index, format: :json }
+    let(:params){ { classroom_id: classroom.id, format: :json } }
+    before{ get :index, params }
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:reservations).first).to eq(reservation) }
-    it{ expect(JSON.parse(response.body).first.keys).to eq ['id', 'name', 'start_time', 'end_time', 'user_id', 'classroom_id'] }
+    it{ expect(JSON.parse(response.body).first.keys).to eq(response_keys) }
   end
 
 
@@ -23,7 +25,7 @@ describe Api::V1::ReservationsController do
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:reservation)).to eq(reservation) }
-    it{ expect(JSON.parse(response.body).keys).to eq  ['id', 'name', 'start_time', 'end_time', 'user_id', 'classroom_id'] }
+    it{ expect(JSON.parse(response.body).keys).to eq(response_keys) }
   end
 
   describe 'POST create' do
@@ -36,16 +38,18 @@ describe Api::V1::ReservationsController do
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:reservation).name).to eq 'Reservation Test' }
-    it{ expect(JSON.parse(response.body).keys).to eq ['id', 'name', 'start_time', 'end_time', 'user_id', 'classroom_id'] }
+    it{ expect(JSON.parse(response.body).keys).to eq(response_keys) }
   end
 
   describe 'PUT update' do
-    let(:params){ { id: reservation.id, reservation: { name: 'Reservation Test' }, format: :json } }
+    let(:params){ { id: reservation.id,
+                    reservation: { name: 'Reservation Test' },
+                    format: :json } }
     before{ put :update, params }
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:reservation).name).to eq 'Reservation Test' }
-    it{ expect(JSON.parse(response.body).keys).to eq ['id', 'name', 'start_time', 'end_time', 'user_id', 'classroom_id'] }
+    it{ expect(JSON.parse(response.body).keys).to eq(response_keys) }
   end
 
   describe 'DELETE destroy' do
