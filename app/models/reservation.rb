@@ -4,6 +4,8 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :classroom
 
+  delegate :email, to: :user, prefix: true
+
   validates :name, :user_id, :classroom_id,:start_time, :end_time, presence: true
 
   aasm column: :state do

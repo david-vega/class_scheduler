@@ -20,4 +20,9 @@ describe Reservation do
       it{ is_expected.to be_finished }
     end
   end
+
+  describe '#user_email' do
+    it{ expect( subject.user_email ).to eql(subject.user.email) }
+  end
+
 end
