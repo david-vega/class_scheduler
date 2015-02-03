@@ -7,4 +7,8 @@ FactoryGirl.define do
   factory :super_user, class: SuperUser, parent: :user do
     type 'SuperUser'
   end
+
+  factory :administrator, class: Administrator, parent: :super_user do
+    type 'Administrator'
+  end
 end

@@ -6,7 +6,4 @@ class User < ActiveRecord::Base
 
   has_many :reservations
 
-  def can_make_reservations?
-    false
-  end
 end
