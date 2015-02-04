@@ -13,9 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.form_params
+//= require jquery.inputmask
 //= require bootstrap
-//= require moment.min
-//= require bootstrap-datetimepicker.min
 //= require underscore
 //= require backbone
 //= require backbone-validation

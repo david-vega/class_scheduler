@@ -12,6 +12,6 @@ class ReservationDecorator < Draper::Decorator
   private
 
   def format_date date
-    date.strftime('%Y/%m/%d %H:%M')
+    date.strftime('%d/%m/%Y %H:%M')
   end
 end
