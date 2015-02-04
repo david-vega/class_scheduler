@@ -5,10 +5,15 @@
   = text_field_tag 'name', '', class: '', value: '<%=@name%>'.html_safe
   %br
   = label_tag 'start_time', 'Start', class: ''
-  = text_field_tag 'start_time', '',class: 'datetime', value: '<%=@start_time%>'.html_safe
+  = text_field_tag 'start_time', '',class: 'datetime',
+                                    value: '<%=@start_time%>'.html_safe,
+                                    placeholder: 'dd/mm/yyyy hh:mm'
   %br
   = label_tag 'end_time', 'End', class: ''
-  = text_field_tag 'end_time', '',class: 'datetime', value: '<%=@end_time%>'.html_safe
+  = text_field_tag 'end_time', '',class: 'datetime',
+                                  value: '<%=@end_time%>'.html_safe,
+                                  placeholder: 'dd/mm/yyyy hh:mm'
+
   = submit_tag 'Submit', id: 'reservation-button', class: 'form-button'
 
 :coffee
