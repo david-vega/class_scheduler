@@ -1,6 +1,6 @@
 class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
   initialize: ->
-    @model = new @collection.model
+    @renderLoader @$el
     @collection.on 'reset', @collectionReset, @
     @collection.on 'add', @collectionAdd, @
 
@@ -8,6 +8,7 @@ class ClassScheduler.Views.Collection extends ClassScheduler.Views.Base
     'click .add-new' : 'renderNewForm'
 
   collectionReset: (collection) ->
+    @removeLoader()
     @addAll collection
     @addEmpty()
 

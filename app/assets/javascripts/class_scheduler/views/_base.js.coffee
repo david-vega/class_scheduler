@@ -16,3 +16,13 @@ class ClassScheduler.Views.Base extends Backbone.View
 
   removeView: ->
     @remove()
+
+
+  renderLoader: (element, message = 'Loading...') ->
+    loadingView = new ClassScheduler.Views.LoadingView
+                                      message: message
+
+    @loader = loadingView.render().$el.appendTo(element)
+
+  removeLoader: ->
+    @loader.remove() if @loader
