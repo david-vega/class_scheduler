@@ -1,10 +1,13 @@
 .spinner
   border-radius: 50%
   position: relative
-  background: #fffa3b
-  margin: 45px
-  height: 30px
-  width: 30px
+  border-color: #4A4A4A transparent #52C5C5 transparent
+  border-width: 1px
+  border-style: solid
+  content: ''
+  margin: 8px
+  height: 20px
+  width: 20px
   -webkit-animation: spinner 1.5s infinite linear
   animation: spinner 1.5s infinite linear
 
@@ -16,21 +19,23 @@
 
   &:after
     border-color: transparent #ff9700 transparent #ff2f2a
-    border-width: 2px
-    width: 200%
-    height: 200%
-    left: -15px
-    top: -15px
-    -webkit-animation: spinner_after 1s infinite linear
-    animation: spinner_after 1s infinite linear
+    border-width: 1px
+    width: 28px
+    height: 28px
+    left: -5px
+    top: -5px
+    -webkit-animation: spinner 1s infinite linear
+    animation: spinner 1s infinite linear
 
   &:before
     border-color: #2c28ff transparent #118014 transparent
-    border-width: 4px
-    width: 300%
-    height: 300%
-    left: -30px
-    top: -30px
+    border-width: 1px
+    width: 36px
+    height: 36px
+    left: -9px
+    top: -9px
+    -webkit-animation: spinner 1.25s infinite linear
+    animation: spinner 1.25s infinite linear
 
 
 @-webkit-keyframes spinner
@@ -38,29 +43,10 @@
     transform: rotate(0deg)
   50%
     transform: rotate(180deg)
-    background: #ff86e4
   100%
     transform: rotate(360deg)
 
 @keyframes spinner
-  0%
-    transform: rotate(0deg)
-  50%
-    transform: rotate(180deg)
-    background: #ff86e4
-  100%
-    transform: rotate(360deg)
-
-
-@-webkit-keyframes spinner_after
-  0%
-    transform: rotate(0deg)
-  50%
-    transform: rotate(180deg)
-  100%
-    transform: rotate(360deg)
-
-@keyframes spinner_after
   0%
     transform: rotate(0deg)
   50%
