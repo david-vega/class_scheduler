@@ -6,6 +6,7 @@ describe Api::V1::ClassroomsController do
   let(:user){ FactoryGirl.create :user }
   let!(:classroom){ FactoryGirl.create :classroom }
   let!(:building){ classroom.building }
+  let(:response_keys){ %w(id name state building_id) }
 
   before{ sign_in user }
 
@@ -15,7 +16,7 @@ describe Api::V1::ClassroomsController do
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:classrooms).first).to eq(classroom) }
-    it{ expect(JSON.parse(response.body).first.keys).to eq ['id', 'name', 'state'] }
+    it{ expect(JSON.parse(response.body).first.keys).to eq response_keys }
   end
 
   describe 'GET show' do
@@ -23,7 +24,7 @@ describe Api::V1::ClassroomsController do
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:classroom)).to eq(classroom) }
-    it{ expect(JSON.parse(response.body).keys).to eq ['id', 'name', 'state'] }
+    it{ expect(JSON.parse(response.body).keys).to eq response_keys }
   end
 
   describe 'POST create' do
@@ -32,7 +33,7 @@ describe Api::V1::ClassroomsController do
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:classroom).name).to eq 'Classroom Test' }
-    it{ expect(JSON.parse(response.body).keys).to eq ['id', 'name', 'state'] }
+    it{ expect(JSON.parse(response.body).keys).to eq response_keys }
   end
 
   describe 'PUT update' do
@@ -41,7 +42,7 @@ describe Api::V1::ClassroomsController do
 
     it{ expect(response).to be_success }
     it{ expect([assigns(:classroom).name, assigns(:classroom).id]).to eq ['Classroom Test', classroom.id] }
-    it{ expect(JSON.parse(response.body).keys).to eq ['id', 'name', 'state'] }
+    it{ expect(JSON.parse(response.body).keys).to eq response_keys }
   end
 
   describe 'DELETE destroy' do
