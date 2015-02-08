@@ -1,1 +1,1 @@
-json.( building, :id, :name, :state )
+json.( building, :id, :name, :state, :classroom_names )

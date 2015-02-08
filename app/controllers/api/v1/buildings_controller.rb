@@ -4,7 +4,7 @@ class Api::V1::BuildingsController < Api::V1::BaseController
   before_action :find_building, only: [:show, :update, :destroy]
 
   def index
-    @buildings = Building.all
+    @buildings = Building.all.decorate
   end
 
   def show
