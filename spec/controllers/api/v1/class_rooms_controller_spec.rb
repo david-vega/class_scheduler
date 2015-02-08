@@ -5,11 +5,13 @@ describe Api::V1::ClassroomsController do
 
   let(:user){ FactoryGirl.create :user }
   let!(:classroom){ FactoryGirl.create :classroom }
+  let!(:building){ classroom.building }
 
   before{ sign_in user }
 
   describe 'GET index' do
-    before{ get :index, format: :json }
+    let(:params){ { building_id: building.id, format: :json } }
+    before{ get :index, params }
 
     it{ expect(response).to be_success }
     it{ expect(assigns(:classrooms).first).to eq(classroom) }
@@ -25,7 +27,7 @@ describe Api::V1::ClassroomsController do
   end
 
   describe 'POST create' do
-    let(:params){ { classroom: { name: 'Classroom Test' }, format: :json } }
+    let(:params){ { classroom: { name: 'Classroom Test', building_id: building.id }, format: :json } }
     before{ post :create, params }
 
     it{ expect(response).to be_success }

@@ -4,7 +4,7 @@ class Api::V1::ClassroomsController < Api::V1::BaseController
   before_action :find_classroom, only: [:show, :update, :destroy]
 
   def index
-    @classrooms = Classroom.all
+    @classrooms = Classroom.where(building_id: params[:building_id])
   end
 
   def show
@@ -29,6 +29,6 @@ class Api::V1::ClassroomsController < Api::V1::BaseController
     end
 
     def classroom_params
-      params.require(:classroom).permit(:name, :state)
+      params.require(:classroom).permit(:name, :state, :building_id)
     end
 end

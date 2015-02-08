@@ -1,10 +1,9 @@
-class Classroom < ActiveRecord::Base
+class Building < ActiveRecord::Base
   include AASM
 
-  belongs_to :building
-  has_many :reservations, dependent: :destroy
+  has_many :classrooms, dependent: :destroy
 
-  validates :name, :building_id, presence: true
+  validates :name, presence: true
   validates :name, uniqueness: true
 
   aasm column: :state do

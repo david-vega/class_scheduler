@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ReservationDecorator do
   let(:reservation){ FactoryGirl.create :reservation }
-  let(:date_format){ '%Y/%m/%d %H:%M' }
+  let(:date_format){ '%d/%m/%Y %H:%M' }
   subject{ reservation.decorate }
 
   describe '#start' do
