@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Building do
-  subject { FactoryGirl.create :building }
+  subject { FactoryGirl.create :buildings }
 
   it{ expect{ subject.save! }.to_not raise_error }
 

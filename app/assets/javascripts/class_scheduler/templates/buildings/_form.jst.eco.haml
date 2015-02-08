@@ -1,0 +1,8 @@
+.remove.glyphicon.glyphicon-remove
+
+= form_tag 'buildings', class: 'form', id: 'building-form' do
+
+  = label_tag 'name', 'Name', class: ''
+  = text_field_tag 'name', '', class: '', value: '<%=@name%>'.html_safe
+
+  = submit_tag 'Submit', id: 'building-button', class: 'form-button'

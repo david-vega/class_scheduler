@@ -1,4 +1,4 @@
-class ClassScheduler.Views.ReservationView extends ClassScheduler.Views.Show
+class ClassScheduler.Views.ShowReservationView extends ClassScheduler.Views.Show
   template_path: 'reservations/show'
 
   className: 'reservation'

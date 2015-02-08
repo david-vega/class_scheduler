@@ -1,4 +1,4 @@
-20.times do
+10.times do
   FactoryGirl.create :reservation
 end
 

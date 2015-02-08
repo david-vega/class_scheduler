@@ -3,15 +3,15 @@ class ClassScheduler.Views.CalendarView extends ClassScheduler.Views.Base
 
   el: '#main-container'
 
-  renderClassrooms: ->
-    classroomsCollection = new ClassScheduler.Collections.ClassroomsCollection
-    classroomsView = new ClassScheduler.Views.ClassroomsView
-                                        collection: classroomsCollection
-                                        el: @$('#classrooms')
-                                        view: ClassScheduler.Views.ClassroomView
-                                        newView: ClassScheduler.Views.NewClassroomView
+  renderBuildings: ->
+    buildingsCollection = new ClassScheduler.Collections.BuildingsCollection
+    buildingsView = new ClassScheduler.Views.IndexBuildingView
+                                        collection: buildingsCollection
+                                        el: @$('#buildings')
+                                        view: ClassScheduler.Views.ShowBuildingView
+                                        newView: ClassScheduler.Views.NewBuildingView
 
-    classroomsCollection.fetch reset: true
+    buildingsCollection.fetch reset: true
 
   afterRender: ->
-    @renderClassrooms()
+    @renderBuildings()

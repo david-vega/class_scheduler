@@ -1,4 +1,4 @@
-class ClassScheduler.Views.ClassroomView extends ClassScheduler.Views.Show
+class ClassScheduler.Views.ShowClassroomView extends ClassScheduler.Views.Show
   template_path: 'classrooms/show'
 
   className: 'classroom col-md-4'
@@ -8,7 +8,7 @@ class ClassScheduler.Views.ClassroomView extends ClassScheduler.Views.Show
   renderReservations: ->
     reservationsCollection = new ClassScheduler.Collections.ReservationsCollection
 
-    reservationsView = new ClassScheduler.Views.ReservationsView
+    reservationsView = new ClassScheduler.Views.IndexReservationView
                                           collection: reservationsCollection
                                           el: @$('.reservations')
                                           view: ClassScheduler.Views.ReservationView

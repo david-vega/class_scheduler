@@ -29,6 +29,6 @@ class Api::V1::BuildingsController < Api::V1::BaseController
   end
 
   def building_params
-    params.require(:building).permit(:name, :state)
+    params.require(:buildings).permit(:name, :state)
   end
 end
