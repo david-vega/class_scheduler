@@ -12,7 +12,7 @@ class Api::V1::BuildingsController < Api::V1::BaseController
   end
 
   def create
-    @building = Building.create!(building_params)
+    @building = Building.create!(building_params).decorate
   end
 
   def update
@@ -25,10 +25,10 @@ class Api::V1::BuildingsController < Api::V1::BaseController
 
   private
   def find_building
-    @building = Building.find(params[:id])
+    @building = Building.find(params[:id]).decorate
   end
 
   def building_params
-    params.require(:buildings).permit(:name, :state)
+    params.require(:building).permit(:name, :state)
   end
 end

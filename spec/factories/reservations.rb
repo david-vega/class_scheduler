@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :reservation do
-    name 'anatomy class 1'
+    sequence(:name) { |n| "Anatomy #{n}" }
     start_time Time.now
     end_time Time.now + 1.hours
 
