@@ -3,6 +3,7 @@
 %h4
   <%= @name %>
 %p
-  <%= @classroom_names %>
-
+  <% for classroom_name in @classroom_names: %>
+  <%= classroom_name %>
+  <% end %>
 .classrooms
