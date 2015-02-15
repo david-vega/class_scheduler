@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :buildings
       resources :classrooms
       resources :reservations
+      post '/search', to: 'search#search'
     end
   end
 
