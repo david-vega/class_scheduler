@@ -10,6 +10,7 @@ class Api::V1::SearchController < Api::V1::BaseController
       case params[:search][:type]
       when 'classroom' then search_classroom
       when 'building' then search_building
+      when 'user' then search_user
       end
     end
     def search_classroom
@@ -17,5 +18,8 @@ class Api::V1::SearchController < Api::V1::BaseController
     end
     def search_building
       @search_results = Building.search(params[:search][:name]).decorate
+    end
+    def search_user
+      @search_results = User.search params[:search][:email]
     end
 end
