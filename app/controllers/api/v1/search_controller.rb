@@ -1,6 +1,21 @@
 class Api::V1::SearchController < Api::V1::BaseController
   respond_to :json, :js
+  before_filter :choose_search
   def index
-    @classrooms = Classroom.search params[:search]
+    @search_results
   end
+  
+  private
+    def choose_search
+      case params[:search][:type]
+      when 'classroom' then search_classroom
+      when 'building' then search_building
+      end
+    end
+    def search_classroom
+      @search_results = Classroom.search params[:search][:name]
+    end
+    def search_building
+      @search_results = Building.search(params[:search][:name]).decorate
+    end
 end

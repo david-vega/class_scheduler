@@ -21,7 +21,7 @@ class Classroom < ActiveRecord::Base
   end
 
   def self.search(search)
-    search_condition = "%" + search + "%"
+    search_condition = "%#{search}%"
     where('name like ?',search_condition)
   end
   

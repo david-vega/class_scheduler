@@ -1,3 +1,3 @@
-json.(@classrooms) do |search|
-  json.partial! search
+json.(@search_results) do |search_result|
+  json.partial! search_result
 end

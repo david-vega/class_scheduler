@@ -18,4 +18,9 @@ class Building < ActiveRecord::Base
       transitions from: :opened, to: :closed
     end
   end
+  
+  def self.search(search)
+    search_condition = "%#{search}%"
+    where('name like ?',search_condition)
+  end
 end
