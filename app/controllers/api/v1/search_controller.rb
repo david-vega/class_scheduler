@@ -1,5 +1,6 @@
 class Api::V1::SearchController < Api::V1::BaseController
+  respond_to :json, :js
   def index
-    @classroom = Classroom.search params[:search]
+    @classrooms = Classroom.search params[:search]
   end
 end
