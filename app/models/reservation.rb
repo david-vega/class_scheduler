@@ -21,4 +21,14 @@ class Reservation < ActiveRecord::Base
       transitions from: :reserved, to: :started
     end
   end
+  def self.search(search)
+    if search[:name].present?
+      search_by_name(search[:name])
+    end
+  end
+  private
+    def self.search_by_name(name)
+      search_condition = "%#{name}%"
+      where('name like ?',search_condition)
+    end
 end

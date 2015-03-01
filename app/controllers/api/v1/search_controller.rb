@@ -11,6 +11,7 @@ class Api::V1::SearchController < Api::V1::BaseController
       when 'classroom' then search_classroom
       when 'building' then search_building
       when 'user' then search_user
+      when 'reservation' then search_reservation
       end
     end
     def search_classroom
@@ -21,5 +22,8 @@ class Api::V1::SearchController < Api::V1::BaseController
     end
     def search_user
       @search_results = User.search params[:search][:email]
+    end
+    def search_reservation
+      @search_results = Reservation.search(params[:search]).decorate
     end
 end

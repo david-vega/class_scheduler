@@ -2,13 +2,14 @@ require 'rails_helper'
 
 describe Api::V1::SearchController do
   render_views
-  let(:user){ FactoryGirl.create :user }
+  let!(:user){ FactoryGirl.create :user }
   let!(:building){ FactoryGirl.create :building }
   let!(:classroom){ FactoryGirl.create :classroom }
-  let!(:user){ FactoryGirl.create :user }
+  let!(:reservation){ FactoryGirl.create :reservation }
   let(:response_keys_classroom){ %w(id name state building_id) }
   let(:response_keys_building){ %w(id name state classroom_names) }
   let(:response_keys_user){ %w(id email) }
+  let(:response_keys_reservation){ %w(id name start end user_email classroom_id) }
   before{ sign_in user }
 
   describe 'GET index classroom' do
@@ -34,5 +35,13 @@ describe Api::V1::SearchController do
     it{ expect(response).to be_success }
     it{ expect(assigns(:search_results).first).to eq(user) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_user }
+  end
+  describe 'GET index reservation name' do
+    let(:params){ { search: {name: 'Anatomy',type: 'reservation'}, format: :json } }
+    before{ get :index, params }
+
+    it{ expect(response).to be_success }
+    it{ expect(assigns(:search_results).first).to eq(reservation) }
+    it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_reservation }
   end
 end
