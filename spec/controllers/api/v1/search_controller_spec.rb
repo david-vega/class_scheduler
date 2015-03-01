@@ -20,6 +20,7 @@ describe Api::V1::SearchController do
     it{ expect(assigns(:search_results).first).to eq(classroom) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_classroom }
   end
+
   describe 'GET index building' do
     let(:params){ { search: {name: 'Build',type: 'building'}, format: :json } }
     before{ get :index, params }
@@ -28,6 +29,7 @@ describe Api::V1::SearchController do
     it{ expect(assigns(:search_results).first).to eq(building) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_building }
   end
+
   describe 'GET index user' do
     let(:params){ { search: {email: 'person',type: 'user'}, format: :json } }
     before{ get :index, params }
@@ -36,6 +38,7 @@ describe Api::V1::SearchController do
     it{ expect(assigns(:search_results).first).to eq(user) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_user }
   end
+
   describe 'GET index reservation name' do
     let(:params){ { search: {name: 'Anatomy',type: 'reservation'}, format: :json } }
     before{ get :index, params }
@@ -44,6 +47,7 @@ describe Api::V1::SearchController do
     it{ expect(assigns(:search_results).first).to eq(reservation) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_reservation }
   end
+
   describe 'GET index reservation user' do
     let(:params){ { search: {user_id: reservation[:user_id],type: 'reservation'}, format: :json } }
     before{ get :index, params }
@@ -51,6 +55,7 @@ describe Api::V1::SearchController do
     it{ expect(assigns(:search_results).first).to eq(reservation) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_reservation }
   end
+
   describe 'GET index reservation classroom' do
     let(:params){ { search: {classroom_id: reservation[:classroom_id],type: 'reservation'}, format: :json } }
     before{ get :index, params }
