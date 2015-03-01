@@ -44,4 +44,18 @@ describe Api::V1::SearchController do
     it{ expect(assigns(:search_results).first).to eq(reservation) }
     it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_reservation }
   end
+  describe 'GET index reservation user' do
+    let(:params){ { search: {user_id: reservation[:user_id],type: 'reservation'}, format: :json } }
+    before{ get :index, params }
+    it{ expect(response).to be_success }
+    it{ expect(assigns(:search_results).first).to eq(reservation) }
+    it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_reservation }
+  end
+  describe 'GET index reservation classroom' do
+    let(:params){ { search: {classroom_id: reservation[:classroom_id],type: 'reservation'}, format: :json } }
+    before{ get :index, params }
+    it{ expect(response).to be_success }
+    it{ expect(assigns(:search_results).first).to eq(reservation) }
+    it{ expect(JSON.parse(response.body).first.keys).to eq response_keys_reservation }
+  end
 end
