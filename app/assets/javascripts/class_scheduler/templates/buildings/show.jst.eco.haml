@@ -1,7 +1,8 @@
 .edit.glyphicon.glyphicon-pencil
 
 %h4
-  <%= @name %>
+  = link_to '<%= @name %>'.html_safe, '#', class: 'show building'
+
 %p
   <% for classroom_name in @classroom_names: %>
   <%= classroom_name %>

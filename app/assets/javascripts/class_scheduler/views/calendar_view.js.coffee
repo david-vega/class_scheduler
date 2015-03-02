@@ -7,7 +7,7 @@ class ClassScheduler.Views.CalendarView extends ClassScheduler.Views.Base
     buildingsCollection = new ClassScheduler.Collections.BuildingsCollection
     buildingsView = new ClassScheduler.Views.IndexBuildingView
                                         collection: buildingsCollection
-                                        el: @$('#buildings')
+                                        el: $('#content')
                                         view: ClassScheduler.Views.ShowBuildingView
                                         newView: ClassScheduler.Views.NewBuildingView
 
