@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :buildings
       resources :classrooms
       resources :reservations
+      resources :users
+      post '/search', to: 'search#index'
     end
   end
 

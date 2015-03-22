@@ -25,4 +25,8 @@ describe Classroom do
       it{ expect(Classroom.new(name: subject.name)).to_not be_valid }
     end
   end
+
+  describe '#self.search' do
+    it{ expect(Classroom.search('room')).to include(subject)}
+  end
 end

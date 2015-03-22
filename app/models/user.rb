@@ -5,5 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reservations
-
+  def self.search(search)
+    search_condition = "%#{search}%"
+    where('email like ?',search_condition)
+  end
 end
