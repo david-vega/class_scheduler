@@ -16,7 +16,7 @@ class Api::V1::SearchController < Api::V1::BaseController
     end
 
     def search_classroom
-      @search_results = Classroom.search params[:search][:name]
+      @search_results = Classroom.search(params[:search][:name]).decorate
     end
 
     def search_building

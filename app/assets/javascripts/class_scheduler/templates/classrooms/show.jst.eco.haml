@@ -1,6 +1,8 @@
 .edit.glyphicon.glyphicon-pencil
 
+%h2 <%= @building_name %>
+
 %h4
-  <%= @name %>
+  = link_to '<%= @name %>'.html_safe, '#', class: 'show building'
 
 .reservations

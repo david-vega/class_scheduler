@@ -6,7 +6,7 @@ describe Api::V1::SearchController do
   let!(:building){ FactoryGirl.create :building }
   let!(:classroom){ FactoryGirl.create :classroom }
   let!(:reservation){ FactoryGirl.create :reservation }
-  let(:response_keys_classroom){ %w(id name state building_id) }
+  let(:response_keys_classroom){ %w(id name state building_id building_name) }
   let(:response_keys_building){ %w(id name state classroom_names) }
   let(:response_keys_user){ %w(id email) }
   let(:response_keys_reservation){ %w(id name start end user_email classroom_id) }

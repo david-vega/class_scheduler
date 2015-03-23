@@ -4,7 +4,7 @@ class Api::V1::ClassroomsController < Api::V1::BaseController
   before_action :find_classroom, only: [:show, :update, :destroy]
 
   def index
-    @classrooms = Classroom.where(building_id: params[:building_id])
+    @classrooms = Classroom.where(building_id: params[:building_id]).decorate
   end
 
   def show
@@ -12,7 +12,7 @@ class Api::V1::ClassroomsController < Api::V1::BaseController
   end
 
   def create
-    @classroom = Classroom.create!(classroom_params)
+    @classroom = Classroom.create!(classroom_params).decorate
   end
 
   def update
@@ -25,7 +25,7 @@ class Api::V1::ClassroomsController < Api::V1::BaseController
 
   private
     def find_classroom
-      @classroom = Classroom.find(params[:id])
+      @classroom = Classroom.find(params[:id]).decorate
     end
 
     def classroom_params

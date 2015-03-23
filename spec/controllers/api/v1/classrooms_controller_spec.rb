@@ -6,7 +6,7 @@ describe Api::V1::ClassroomsController do
   let(:user){ FactoryGirl.create :user }
   let!(:classroom){ FactoryGirl.create :classroom }
   let!(:building){ classroom.building }
-  let(:response_keys){ %w(id name state building_id) }
+  let(:response_keys){ %w(id name state building_id building_name) }
 
   before{ sign_in user }
 
