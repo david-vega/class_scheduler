@@ -1,7 +1,7 @@
 class ClassScheduler.Views.ShowClassroomView extends ClassScheduler.Views.Show
   template_path: 'classrooms/show'
 
-  className: 'classroom col-md-4'
+  className: 'classroom col-md-6'
 
   editView: ClassScheduler.Views.EditClassroomView
 
@@ -18,6 +18,3 @@ class ClassScheduler.Views.ShowClassroomView extends ClassScheduler.Views.Show
     reservationsCollection.fetch
                 data: $.param(classroom_id: @model.id)
                 reset: true
-
-  afterRender: ->
-    @renderReservations()
