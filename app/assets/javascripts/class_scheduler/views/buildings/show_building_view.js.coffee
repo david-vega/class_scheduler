@@ -16,6 +16,7 @@ class ClassScheduler.Views.ShowBuildingView extends ClassScheduler.Views.Show
                           el: $('#content')
                           view: ClassScheduler.Views.ShowClassroomView
                           newView: ClassScheduler.Views.NewClassroomView
+                          newModelOptions: { building_id: @model.id }
 
     classroomsCollection.fetch
                          data: $.param(building_id: @model.id)
