@@ -3,5 +3,6 @@ class CalendarController < ApplicationController
 
   def show
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @reservations = Reservation.where(classroom_id: 1).starts_this_month(@date)
   end
 end
