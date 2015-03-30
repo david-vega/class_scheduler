@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'calendar', to: 'calendar#show'
+
   devise_for :users
 
   devise_scope :user do
@@ -7,17 +9,17 @@ Rails.application.routes.draw do
     delete '/logout', to: 'devise/sessions#destroy'
   end
 
-  namespace :api do
-    api_version(module: 'v1', path: {value: 'v1'}) do
-      resources :buildings
-      resources :classrooms
-      resources :reservations
-      resources :users
-      post '/search', to: 'search#index'
-    end
-  end
+  # namespace :api do
+  #   api_version(module: 'v1', path: {value: 'v1'}) do
+  #     resources :buildings
+  #     resources :classrooms
+  #     resources :reservations
+  #     resources :users
+  #     post '/search', to: 'search#index'
+  #   end
+  # end
 
-  match '/calendar' => 'class_scheduler#index', format: false, via: [:get, :post]
+  # match '/calendar' => 'class_scheduler#index', format: false, via: [:get, :post]
 
-  root to: 'class_scheduler#index'
+  root to: 'calendar#show'
 end
