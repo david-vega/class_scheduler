@@ -1,4 +1,6 @@
 class Reservation < ActiveRecord::Base
+  scope :start_this_month, -> date { where(start_time: date.beginning_of_month..date.end_of_month) }
+
   include AASM
 
   belongs_to :user
