@@ -3,6 +3,17 @@ class CalendarController < ApplicationController
 
   def show
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    @reservations = Reservation.where(classroom_id: 1).starts_this_month(@date)
+    @reservations = get_reservations
+  end
+
+  private
+
+  def find_classroom
+    Classroom.find_by_name(params[:classroom_name].gsub('_', ' '))
+  end
+
+  def get_reservations
+    classroom = find_classroom
+    classroom.reservations.try(:start_this_month, @date) if classroom
   end
 end

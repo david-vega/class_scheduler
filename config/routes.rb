@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'calendar', to: 'calendar#show'
+
+  get ':classroom_name/calendar', to: 'calendar#show'
 
   devise_for :users
 

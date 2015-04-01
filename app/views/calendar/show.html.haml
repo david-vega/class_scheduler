@@ -1,16 +1,21 @@
 .row
-  .col-md-12.text-center
-    .well.controls
-      = link_to calendar_path(date: @date - 1.month), class: 'btn btn-default' do
-        %i.glyphicon.glyphicon-backward
-      = "#{@date.strftime('%B')} #{@date.year}"
-      = link_to calendar_path(date: @date + 1.month), class: 'btn btn-default' do
-        %i.glyphicon.glyphicon-forward
+  -#.col-md-12.text-center
+  -#  .well.controls
+  -#    = link_to calendar_path(date: @date - 1.month), class: 'btn btn-default' do
+  -#      %i.glyphicon.glyphicon-backward
+  -#    = "#{@date.strftime('%B')} #{@date.year}"
+  -#    = link_to calendar_path(date: @date + 1.month), class: 'btn btn-default' do
+  -#      %i.glyphicon-backward.glyphicon-forward
 .row
   .col-md-12
     = calendar @date do |date|
-      = date.day
+      .day
+        = date.day
       .reservations
-        - reservations_today(date).each do |reservation|
-          %div{ class: "reservation_#{reservation.id}" }
-            = reservation.name
+        - if @reservations
+          - reservations_today(date).each do |reservation|
+            .reservation{ id: "reservation_#{reservation.id}" }
+              = reservation.name
+              = format_time reservation.start_time
+              \-
+              = format_time reservation.end_time

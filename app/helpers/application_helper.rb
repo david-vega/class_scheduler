@@ -6,4 +6,8 @@ module ApplicationHelper
   def reservations_today date
     @reservations.where(start_time: (date.beginning_of_day..date.end_of_day))
   end
+
+  def format_time date
+    date.strftime '%H:%M'
+  end
 end
