@@ -9,7 +9,8 @@ class CalendarController < ApplicationController
   private
 
   def find_classroom
-    Classroom.find_by_name(params[:classroom_name].gsub('_', ' '))
+    Classroom.find_by_name(params[:classroom_name]?
+      params[:classroom_name].gsub('_', ' '):'')
   end
 
   def get_reservations
